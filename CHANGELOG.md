@@ -1,5 +1,68 @@
 # Changelog
 
+## [1.150.0](https://github.com/SunsetMkt/metacubexd/compare/v1.149.0...v1.150.0) (2024-09-16)
+
+
+### Features
+
+* add allow-lan ([#478](https://github.com/SunsetMkt/metacubexd/issues/478)) ([aa4d1d9](https://github.com/SunsetMkt/metacubexd/commit/aa4d1d9e517ed6f33920f0082fc3ade23236097d))
+* add support for IPv6 check ([#403](https://github.com/SunsetMkt/metacubexd/issues/403)) ([4d5543c](https://github.com/SunsetMkt/metacubexd/commit/4d5543c64b32263ef1288aac19d3d749abddb59b))
+* Add Upgrade Dashboard Button ([#784](https://github.com/SunsetMkt/metacubexd/issues/784)) ([32704fb](https://github.com/SunsetMkt/metacubexd/commit/32704fbaaf8593bebf7a0050d4278bc314daf7f5))
+* bun -&gt; pnpm ([74ed544](https://github.com/SunsetMkt/metacubexd/commit/74ed5448f4aca701f7e0e5f3013485ba449171b7))
+* **config:** tun mode stack: `Mixed`, closes [#431](https://github.com/SunsetMkt/metacubexd/issues/431) ([59d7b04](https://github.com/SunsetMkt/metacubexd/commit/59d7b04d5ce5431c4b165c1d781be32eaa9cc4ff))
+* **connection:** 添加入站用户列 ([#437](https://github.com/SunsetMkt/metacubexd/issues/437)) ([1ba7700](https://github.com/SunsetMkt/metacubexd/commit/1ba7700a3f7f72e0b778a1b4af083231e1d6790c))
+* custom table columns order for mobile ([#885](https://github.com/SunsetMkt/metacubexd/issues/885)) ([3fd6abb](https://github.com/SunsetMkt/metacubexd/commit/3fd6abb879b6aa4d3fa42b40210f39c2160d00c7))
+* display current selected endpoint at the bottom of the overview page ([3e92373](https://github.com/SunsetMkt/metacubexd/commit/3e92373166620dc52cbd8cdf5bfedc88296edf6e))
+* get package.json version from npm builtin environment variable ([0cdf390](https://github.com/SunsetMkt/metacubexd/commit/0cdf390c2801f2b8dc4678898a709143204ccf30))
+* hidden api & remove domain unmaintained ([#939](https://github.com/SunsetMkt/metacubexd/issues/939)) ([bd65478](https://github.com/SunsetMkt/metacubexd/commit/bd6547873fcc64a500eadda78a1607be59e11a97))
+* logs pause ([#855](https://github.com/SunsetMkt/metacubexd/issues/855)) ([776d8f8](https://github.com/SunsetMkt/metacubexd/commit/776d8f8daf0b2232a5b25020f14c4062b74761a7))
+* make persisted for ipv6 result ([#983](https://github.com/SunsetMkt/metacubexd/issues/983)) ([2078051](https://github.com/SunsetMkt/metacubexd/commit/2078051d7c8433ceda4240d41952cff32308990c))
+* new themes ([677d024](https://github.com/SunsetMkt/metacubexd/commit/677d024e988d67076f5a7bd4c716021a83bb3681))
+* optimize setup form ([#960](https://github.com/SunsetMkt/metacubexd/issues/960)) ([00ab6d4](https://github.com/SunsetMkt/metacubexd/commit/00ab6d46458c20d41b8b8080a8f57736d600d8d0))
+* pin packageManager version ([a8cf520](https://github.com/SunsetMkt/metacubexd/commit/a8cf520b5a516198c5552e4442cf2a4ef37b5441))
+* preview dlspeed in proxies page ([#924](https://github.com/SunsetMkt/metacubexd/issues/924)) ([51a88b5](https://github.com/SunsetMkt/metacubexd/commit/51a88b506c1c4a5c41ff9a5c0e12a630f82a79fe))
+* proxy group is always placed at the forefront when sorting proxies ([#458](https://github.com/SunsetMkt/metacubexd/issues/458)) ([a0f80aa](https://github.com/SunsetMkt/metacubexd/commit/a0f80aa62dc4ed90fed288019fc00ec26b952316))
+* **proxy:** add back the render proxies in two columns option, closes [#360](https://github.com/SunsetMkt/metacubexd/issues/360) ([62c0cd9](https://github.com/SunsetMkt/metacubexd/commit/62c0cd9a634f768a970afc66e15968f5f8821c5a))
+* quick filter for connections ([#856](https://github.com/SunsetMkt/metacubexd/issues/856)) ([916a661](https://github.com/SunsetMkt/metacubexd/commit/916a661011a3b559df6b91fd85bb2a17e039f508))
+* reconnect ws when logs level changed ([#1003](https://github.com/SunsetMkt/metacubexd/issues/1003)) ([246a1ac](https://github.com/SunsetMkt/metacubexd/commit/246a1ac053ef56a1930d3ad2ae3bd0784e01c513))
+* release ([da417aa](https://github.com/SunsetMkt/metacubexd/commit/da417aa5745e12771aa7df2999e7ea90a8b27932))
+* Support dynamic acquisition of clash_mode ([#908](https://github.com/SunsetMkt/metacubexd/issues/908)) ([341a14a](https://github.com/SunsetMkt/metacubexd/commit/341a14a7bcdf6054fb3bb8f1d6bb87e78cc38db7))
+* update backend repository url ([43acdac](https://github.com/SunsetMkt/metacubexd/commit/43acdace5dbcf39ea736a9d6f1ee8078a19a1647))
+* upgrade dependencies ([af43c7d](https://github.com/SunsetMkt/metacubexd/commit/af43c7d233df9416871402e20f18e81ffba61cee))
+* upgrade dependencies ([e8348d8](https://github.com/SunsetMkt/metacubexd/commit/e8348d8675075698d81f51d0333d008aa8107cc9))
+
+
+### Bug Fixes
+
+* `//` in websocketpath ([#651](https://github.com/SunsetMkt/metacubexd/issues/651)) ([ed70948](https://github.com/SunsetMkt/metacubexd/commit/ed70948a364279f7f9acffb903f6e46a94191da6))
+* auto configure ([#726](https://github.com/SunsetMkt/metacubexd/issues/726)) ([ce4f67d](https://github.com/SunsetMkt/metacubexd/commit/ce4f67d6504614502fac781174a75472d50bb312))
+* closes [#685](https://github.com/SunsetMkt/metacubexd/issues/685) ([995388f](https://github.com/SunsetMkt/metacubexd/commit/995388f74fcdb54007a8e595334b6e0a2910a91c))
+* **config:** mode select options are missing ([21a3aa1](https://github.com/SunsetMkt/metacubexd/commit/21a3aa169ed3fe53f04a97c806ef20a11120fdea))
+* don't allow invalid url like 'http:127.0.0.1' ([#766](https://github.com/SunsetMkt/metacubexd/issues/766)) ([68b97a6](https://github.com/SunsetMkt/metacubexd/commit/68b97a6753f322f6e8e95ffb9c92f36ef5c04ca9))
+* Encode name to prevent request failure due to '/' in URL ([#734](https://github.com/SunsetMkt/metacubexd/issues/734)) ([c121167](https://github.com/SunsetMkt/metacubexd/commit/c121167407ee212049a643551fca29e83642bcf2))
+* enum of not connect for mihomo ([#868](https://github.com/SunsetMkt/metacubexd/issues/868)) ([f6a4d55](https://github.com/SunsetMkt/metacubexd/commit/f6a4d551bafde805507084bf95045dfd251411f3))
+* filter for loadbalance ([#881](https://github.com/SunsetMkt/metacubexd/issues/881)) ([faf7a7e](https://github.com/SunsetMkt/metacubexd/commit/faf7a7ebd04872b47ec62e87aac3bff406268d5b))
+* flickering issue of the config page under sing-box ([#900](https://github.com/SunsetMkt/metacubexd/issues/900)) ([b07647c](https://github.com/SunsetMkt/metacubexd/commit/b07647c549a26868af6c27cc6e8c25501c80b3b3))
+* improve readability for dlspeed preview ([#932](https://github.com/SunsetMkt/metacubexd/issues/932)) ([3727122](https://github.com/SunsetMkt/metacubexd/commit/3727122b95cde32ef15d7383fa8d9eee98dfd5f0))
+* ipv6 latency test ([#854](https://github.com/SunsetMkt/metacubexd/issues/854)) ([d6ec561](https://github.com/SunsetMkt/metacubexd/commit/d6ec561b81f42d8bf76be62ebedc053c883067a3))
+* last delay fallback ([#468](https://github.com/SunsetMkt/metacubexd/issues/468)) ([0e3c465](https://github.com/SunsetMkt/metacubexd/commit/0e3c46569a327451e43542e0cedf83b9087b675b))
+* latency test for selector and ipv6 test ([#860](https://github.com/SunsetMkt/metacubexd/issues/860)) ([5da350d](https://github.com/SunsetMkt/metacubexd/commit/5da350d08e6bf06846729fe457abf4f8c3bca77e))
+* location.search not work ([#842](https://github.com/SunsetMkt/metacubexd/issues/842)) ([614430e](https://github.com/SunsetMkt/metacubexd/commit/614430e0060bf3852f73ad3e5aab97ae032a99f0))
+* nil for nextnode ([#892](https://github.com/SunsetMkt/metacubexd/issues/892)) ([a4be392](https://github.com/SunsetMkt/metacubexd/commit/a4be39268a496055b76e0679fe1b2e060ee6c2a7))
+* **overview:** traffic widget, truncate the texts to fix overflow ([dc9db7c](https://github.com/SunsetMkt/metacubexd/commit/dc9db7c60c5db056418a9af6e2d09184cf482a82))
+* protected pages behind selected endpoint, fixes [#647](https://github.com/SunsetMkt/metacubexd/issues/647) ([a387722](https://github.com/SunsetMkt/metacubexd/commit/a3877229b8807f1c9f1b68f31dc348f061f3e24e))
+* proxy group ipv6 test failed ([#996](https://github.com/SunsetMkt/metacubexd/issues/996)) ([c43b84b](https://github.com/SunsetMkt/metacubexd/commit/c43b84b1149939bf604e6798931f221fa191bc6b))
+* **proxy:** proxy node card layout issue, closes [#429](https://github.com/SunsetMkt/metacubexd/issues/429) ([88bfcf8](https://github.com/SunsetMkt/metacubexd/commit/88bfcf8d731e0d2c57f31d2ba2af2d603c66bf16))
+* **proxy:** proxy preview bar style issue ([54226bc](https://github.com/SunsetMkt/metacubexd/commit/54226bcdc4b205dffad5d4b9358ebc42525b1f31))
+* release failure caused by `pnpm-lock.yaml is not up to date` ([5e4b132](https://github.com/SunsetMkt/metacubexd/commit/5e4b1326bd7987a66ebd45bab1decbb02da19485))
+* respect system ui font & better looking (maybe) for proxy card ([#844](https://github.com/SunsetMkt/metacubexd/issues/844)) ([4b669ff](https://github.com/SunsetMkt/metacubexd/commit/4b669ff030c4c3aa713d639e03ceda185f6b9db6))
+* set latency for test failed ([#948](https://github.com/SunsetMkt/metacubexd/issues/948)) ([9189bf5](https://github.com/SunsetMkt/metacubexd/commit/9189bf5efb0676a053981e0ffd3b3c21f8332dcf))
+* unexpected filtered proxy group ([#875](https://github.com/SunsetMkt/metacubexd/issues/875)) ([9289353](https://github.com/SunsetMkt/metacubexd/commit/928935321bfd9fea4b184423df344354392cfb51))
+* use google as default ipv6 test url ([#894](https://github.com/SunsetMkt/metacubexd/issues/894)) ([dba6d1a](https://github.com/SunsetMkt/metacubexd/commit/dba6d1a4a953dba0bbaec18a45e9e74bc82d72f9))
+* version not showing ([0f0b771](https://github.com/SunsetMkt/metacubexd/commit/0f0b771f218b203bb37bb9d5432d462eb73b6192))
+* virtual scroll ([73fb1a7](https://github.com/SunsetMkt/metacubexd/commit/73fb1a7ed49ef6dfc72198cf271526a04f023247))
+* virtual scroll not working on rules page ([#814](https://github.com/SunsetMkt/metacubexd/issues/814)) ([54c18f7](https://github.com/SunsetMkt/metacubexd/commit/54c18f7d3fcd8237f233dd1da875c1853e84bdd3))
+
 ## [1.149.0](https://github.com/MetaCubeX/metacubexd/compare/v1.148.1...v1.149.0) (2024-09-14)
 
 
