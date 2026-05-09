@@ -301,6 +301,19 @@ const allColumns: ConnectionColumn[] = [
       return renderTwoLineCell(primary, aux)
     },
   },
+  {
+    id: CONNECTIONS_TABLE_ACCESSOR_KEY.Flow,
+    key: 'flow',
+    groupable: true,
+    sortable: true,
+    sortId: 'SourceIP',
+    render: (conn: Connection) => {
+      const primary = `${getSourceIP(conn)}:${conn.metadata.sourcePort}`
+      const aux = `→ ${getDestination(conn)}`
+      return renderTwoLineCell(primary, aux)
+    },
+    groupValue: (conn: Connection) => getSourceIP(conn),
+  },
 ]
 
 const visibleColumns = computed(() => {
