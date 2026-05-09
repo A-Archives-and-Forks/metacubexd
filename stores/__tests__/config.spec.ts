@@ -54,7 +54,9 @@ describe('connections display mode migration', () => {
   })
 
   it('preserves an already-set new key over a legacy key (new wins)', () => {
-    localStorage.setItem('connectionsDisplayMode', JSON.stringify('card'))
+    // VueUse's default string serializer is identity (no JSON encoding),
+    // so the stored value is the raw string, not JSON-quoted.
+    localStorage.setItem('connectionsDisplayMode', 'card')
     localStorage.setItem('useMobileConnectionsTable', 'true')
 
     const store = useConfigStore()

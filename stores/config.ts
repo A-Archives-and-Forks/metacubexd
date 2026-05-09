@@ -121,12 +121,6 @@ export const useConfigStore = defineStore('config', () => {
   const connectionsDisplayMode = useLocalStorage<'auto' | 'table' | 'card'>(
     'connectionsDisplayMode',
     _connectionsDisplayModeDefault,
-    {
-      serializer: {
-        read: (v) => JSON.parse(v),
-        write: (v) => JSON.stringify(v),
-      },
-    },
   )
 
   // Logs settings
