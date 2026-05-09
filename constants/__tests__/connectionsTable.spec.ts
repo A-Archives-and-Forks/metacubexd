@@ -4,8 +4,7 @@ import {
   CONNECTIONS_TABLE_INITIAL_COLUMN_VISIBILITY,
 } from '../index'
 
-// eslint-disable-next-line test/prefer-lowercase-title
-describe('CONNECTIONS_TABLE_ACCESSOR_KEY', () => {
+describe('connections table accessor key enum', () => {
   it('exposes the 4 new composite column keys', () => {
     expect(CONNECTIONS_TABLE_ACCESSOR_KEY.HostProcess).toBe('hostProcess')
     expect(CONNECTIONS_TABLE_ACCESSOR_KEY.RuleChains).toBe('ruleChains')
@@ -26,8 +25,7 @@ describe('CONNECTIONS_TABLE_ACCESSOR_KEY', () => {
   })
 })
 
-// eslint-disable-next-line test/prefer-lowercase-title
-describe('CONNECTIONS_TABLE_INITIAL_COLUMN_VISIBILITY', () => {
+describe('connections table initial column visibility', () => {
   const v = CONNECTIONS_TABLE_INITIAL_COLUMN_VISIBILITY
 
   it('enables the 6 default composite columns', () => {
