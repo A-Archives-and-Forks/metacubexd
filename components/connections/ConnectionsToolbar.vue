@@ -25,6 +25,10 @@ defineProps<{
   globalFilter: string
   paused: boolean
   isClosingConnections: boolean
+  // Card-mode controls
+  displayMode: 'auto' | 'table' | 'card'
+  groupableColumns: ConnectionColumn[]
+  groupingColumn: string | null
 }>()
 
 const emit = defineEmits<{
@@ -33,6 +37,7 @@ const emit = defineEmits<{
   'update:sourceIPFilter': [ip: string]
   'update:sortColumn': [column: string]
   'update:globalFilter': [filter: string]
+  'update:groupingColumn': [columnId: string | null]
   toggleSortOrder: []
   togglePaused: []
   closeConnections: []
@@ -195,6 +200,64 @@ const { t } = useI18n()
         >
           <IconSettings :size="18" />
         </button>
+      </div>
+    </div>
+
+    <!-- Card-mode controls: sort + group dropdowns -->
+    <div
+      v-if="displayMode === 'card'"
+      class="flex flex-wrap items-center gap-2"
+    >
+      <div class="flex items-center gap-1.5">
+        <span class="text-[0.8125rem] text-base-content/60">
+          {{ t('sortBy') }}
+        </span>
+        <select
+          class="cursor-pointer appearance-none rounded-md border border-base-content/12 bg-base-200/60 py-1 pr-7 pl-2 text-[0.8125rem] text-base-content focus:outline-none"
+          :value="sortColumn"
+          @change="
+            emit(
+              'update:sortColumn',
+              ($event.target as HTMLSelectElement).value,
+            )
+          "
+        >
+          <option
+            v-for="col in sortableColumns"
+            :key="col.id"
+            :value="col.sortId"
+          >
+            {{ t(col.key) }}
+          </option>
+        </select>
+        <button
+          class="flex h-6 w-6 cursor-pointer items-center justify-center rounded-md border-none bg-transparent text-base-content/60 hover:bg-base-content/5"
+          @click="emit('toggleSortOrder')"
+        >
+          <IconSortAscending v-if="!sortDesc" :size="14" />
+          <IconSortDescending v-else :size="14" />
+        </button>
+      </div>
+
+      <div class="flex items-center gap-1.5">
+        <span class="text-[0.8125rem] text-base-content/60">
+          {{ t('groupBy') }}
+        </span>
+        <select
+          class="cursor-pointer appearance-none rounded-md border border-base-content/12 bg-base-200/60 py-1 pr-7 pl-2 text-[0.8125rem] text-base-content focus:outline-none"
+          :value="groupingColumn ?? ''"
+          @change="
+            emit(
+              'update:groupingColumn',
+              ($event.target as HTMLSelectElement).value || null,
+            )
+          "
+        >
+          <option value="">{{ t('none') }}</option>
+          <option v-for="col in groupableColumns" :key="col.id" :value="col.id">
+            {{ t(col.key) }}
+          </option>
+        </select>
       </div>
     </div>
   </div>

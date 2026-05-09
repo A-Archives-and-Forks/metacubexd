@@ -356,6 +356,10 @@ const visibleColumns = computed(() => {
 
 const sortableColumns = computed(() => allColumns.filter((col) => col.sortable))
 
+const groupableColumns = computed(() =>
+  allColumns.filter((col) => col.groupable),
+)
+
 // Tabs
 const tabs = computed(() => [
   {
@@ -654,11 +658,17 @@ function showConnectionDetails(conn: Connection) {
       :global-filter="globalFilter"
       :paused="connectionsStore.paused"
       :is-closing-connections="isClosingConnections"
+      :display-mode="configStore.connectionsDisplayMode"
+      :groupable-columns="groupableColumns"
+      :grouping-column="groupingColumn"
       @update:active-tab="activeTab = $event"
       @update:enable-quick-filter="enableQuickFilter = $event"
       @update:source-i-p-filter="sourceIPFilter = $event"
       @update:sort-column="sortColumn = $event"
       @update:global-filter="globalFilter = $event"
+      @update:grouping-column="
+        (colId: string | null) => (groupingColumn = colId)
+      "
       @toggle-sort-order="toggleSortOrder"
       @toggle-paused="connectionsStore.paused = !connectionsStore.paused"
       @close-connections="handleCloseConnections"
