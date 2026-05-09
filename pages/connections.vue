@@ -289,6 +289,18 @@ const allColumns: ConnectionColumn[] = [
     },
     groupValue: (conn: Connection) => getRule(conn),
   },
+  {
+    id: CONNECTIONS_TABLE_ACCESSOR_KEY.Traffic,
+    key: 'traffic',
+    groupable: false,
+    sortable: true,
+    sortId: 'DlSpeed',
+    render: (conn: Connection) => {
+      const primary = `↓ ${formatBytes(conn.downloadSpeed)}/s · ↑ ${formatBytes(conn.uploadSpeed)}/s`
+      const aux = `∑ ↓${formatBytes(conn.download)} · ↑${formatBytes(conn.upload)}`
+      return renderTwoLineCell(primary, aux)
+    },
+  },
 ]
 
 const visibleColumns = computed(() => {
