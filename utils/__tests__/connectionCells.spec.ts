@@ -34,15 +34,18 @@ describe('renderTwoLineCell', () => {
     )
   })
 
-  it('falls back to nbsp when aux is null (preserves equal-height rows)', () => {
+  it('omits the aux div when aux is null (lets the cell vertical-align center the primary line)', () => {
     const vnode = renderTwoLineCell('example.com:443', null)
 
-    expect(findChildByClass(vnode, 'conn-aux')?.children).toBe(' ')
+    expect(findChildByClass(vnode, 'conn-aux')).toBeNull()
+    expect(findChildByClass(vnode, 'conn-primary')?.children).toBe(
+      'example.com:443',
+    )
   })
 
-  it('falls back to nbsp when aux is an empty string', () => {
+  it('omits the aux div when aux is an empty string', () => {
     const vnode = renderTwoLineCell('example.com:443', '')
 
-    expect(findChildByClass(vnode, 'conn-aux')?.children).toBe(' ')
+    expect(findChildByClass(vnode, 'conn-aux')).toBeNull()
   })
 })

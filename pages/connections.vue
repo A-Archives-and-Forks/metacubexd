@@ -801,6 +801,5 @@ function showConnectionDetails(conn: Connection) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  min-height: 1.35em; /* matches line-height — preserves equal height when aux is nbsp */
 }
 </style>
