@@ -45,6 +45,7 @@
   "sniffHost": "Sniff Host",
   "chains": "Цепочки",
   "ruleChains": "Правило / Цепочки",
+  "flowDirection": "Поток",
   "connectTime": "Время",
   "dlSpeed": "Скор. скач.",
   "ulSpeed": "Скор. загр.",

@@ -45,6 +45,7 @@
   "sniffHost": "Sniff Host",
   "chains": "Chains",
   "ruleChains": "Rule / Chains",
+  "flowDirection": "Flow",
   "connectTime": "Time",
   "dlSpeed": "DL Speed",
   "ulSpeed": "UL Speed",

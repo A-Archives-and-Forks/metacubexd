@@ -360,37 +360,4 @@ function isColumnSorted(col: ConnectionColumn, sortColumn: string) {
 .conn-empty {
   color: color-mix(in oklch, var(--color-base-content) 50%, transparent);
 }
-
-/* ============================================================
-   Composite-cell two-line layout (HostProcess / RuleChains /
-   Traffic / Flow). Strict equal-height rows are preserved by
-   .conn-aux's nbsp placeholder when aux content is empty.
-   ============================================================ */
-.conn-cell-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-
-.conn-primary {
-  font-size: 0.8125rem; /* 13px */
-  line-height: 1.4;
-  font-weight: 500;
-  color: var(--color-base-content);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.conn-aux {
-  font-size: 0.6875rem; /* 11px */
-  line-height: 1.35;
-  font-weight: 400;
-  color: color-mix(in oklch, var(--color-base-content) 58%, transparent);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  min-height: 14.85px; /* 11px × 1.35 — preserves equal height when aux is nbsp */
-}
 </style>

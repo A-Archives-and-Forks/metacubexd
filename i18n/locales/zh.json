@@ -45,6 +45,7 @@
   "sniffHost": "嗅探域名",
   "chains": "链路",
   "ruleChains": "规则 / 链路",
+  "flowDirection": "流向",
   "connectTime": "连接时间",
   "dlSpeed": "下载速度",
   "ulSpeed": "上传速度",

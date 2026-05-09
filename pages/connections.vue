@@ -302,7 +302,7 @@ const allColumns: ConnectionColumn[] = [
   },
   {
     id: CONNECTIONS_TABLE_ACCESSOR_KEY.Flow,
-    key: 'flow',
+    key: 'flowDirection',
     groupable: true,
     sortable: true,
     sortId: 'SourceIP',
@@ -330,7 +330,7 @@ const visibleColumns = computed(() => {
       const bOrder = bIndex === -1 ? Infinity : bIndex
       return aOrder - bOrder
     })
-    .filter((col) => visibility[col.id] !== false)
+    .filter((col) => visibility[col.id] === true)
 })
 
 const sortableColumns = computed(() => allColumns.filter((col) => col.sortable))
@@ -736,5 +736,36 @@ function showConnectionDetails(conn: Connection) {
 .conn-close-btn:hover {
   background: color-mix(in oklch, var(--color-error) 20%, transparent);
   transform: scale(1.1);
+}
+
+/* Composite-cell two-line layout (HostProcess / RuleChains / Traffic / Flow).
+   Kept global because cells are rendered via renderTwoLineCell's h() and
+   would not receive scoped style attributes from ConnectionsTable.vue. */
+.conn-cell-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.conn-primary {
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--color-base-content);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.conn-aux {
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.35;
+  font-weight: 400;
+  color: color-mix(in oklch, var(--color-base-content) 58%, transparent);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-height: 14.85px; /* 11px × 1.35 — preserves equal height when aux is nbsp */
 }
 </style>
