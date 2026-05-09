@@ -17,6 +17,15 @@ export interface ConnectionColumn {
   sortable: boolean
   sortId?: string
   render: (conn: Connection) => VNode | string
+  /**
+   * Returns a plain-text representation of the column value for the
+   * card mode aux line (single-line ` · `-separated string).
+   * REQUIRED for columns whose `render` returns a VNode (toString
+   * yields `[object Object]`). Optional for columns whose `render`
+   * already returns a string — the card layer will fall back to
+   * `String(render(conn))` for those.
+   */
+  renderText?: (conn: Connection) => string
   groupValue?: (conn: Connection) => string
 }
 

@@ -184,6 +184,8 @@ const allColumns: ConnectionColumn[] = [
       })
       return h('span', children)
     },
+    renderText: (conn: Connection) =>
+      conn.chains.length ? [...conn.chains].reverse().join(' → ') : '',
     groupValue: (conn: Connection) => conn.chains.join(' > '),
   },
   {
@@ -272,6 +274,11 @@ const allColumns: ConnectionColumn[] = [
       const aux = proc !== '-' ? proc : ''
       return renderTwoLineCell(primary, aux)
     },
+    renderText: (conn: Connection) => {
+      const proc = getProcess(conn)
+      const procText = proc !== '-' ? proc : ''
+      return procText ? `${getHost(conn)} (${procText})` : getHost(conn)
+    },
     groupValue: (conn: Connection) => getHost(conn),
   },
   {
@@ -286,6 +293,13 @@ const allColumns: ConnectionColumn[] = [
         : ''
       return renderTwoLineCell(primary, aux)
     },
+    renderText: (conn: Connection) => {
+      const rule = getRule(conn)
+      const chains = conn.chains.length
+        ? [...conn.chains].reverse().join(' → ')
+        : ''
+      return chains ? `${rule} → ${chains}` : rule
+    },
     groupValue: (conn: Connection) => getRule(conn),
   },
   {
@@ -299,6 +313,8 @@ const allColumns: ConnectionColumn[] = [
       const aux = `∑ ↓${formatBytes(conn.download)} · ↑${formatBytes(conn.upload)}`
       return renderTwoLineCell(primary, aux)
     },
+    renderText: (conn: Connection) =>
+      `↓${formatBytes(conn.downloadSpeed)}/s · ↑${formatBytes(conn.uploadSpeed)}/s · ∑↓${formatBytes(conn.download)} ↑${formatBytes(conn.upload)}`,
   },
   {
     id: CONNECTIONS_TABLE_ACCESSOR_KEY.Flow,
@@ -311,6 +327,11 @@ const allColumns: ConnectionColumn[] = [
       const dest = getDestination(conn)
       const aux = dest ? `→ ${dest}` : ''
       return renderTwoLineCell(primary, aux)
+    },
+    renderText: (conn: Connection) => {
+      const dest = getDestination(conn)
+      const destText = dest ? ` → ${dest}` : ''
+      return `${getSourceIP(conn)}:${conn.metadata.sourcePort}${destText}`
     },
     groupValue: (conn: Connection) => getSourceIP(conn),
   },
