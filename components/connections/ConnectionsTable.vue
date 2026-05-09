@@ -300,7 +300,6 @@ function getCardProcessText(
             }}</span>
             <component
               :is="() => getCloseButton(row.original, props.columns)"
-              v-if="getCloseButton(row.original, props.columns)"
               class="conn-card__action"
             />
           </div>
@@ -612,7 +611,9 @@ function getCardProcessText(
   color: color-mix(in oklch, var(--color-base-content) 50%, transparent);
 }
 
-.conn-card-group + .conn-card {
+/* General sibling: every card after a group header gets indented to
+   visually express group membership (spec §8.2). */
+.conn-card-group ~ .conn-card {
   margin-left: 1rem;
 }
 </style>
