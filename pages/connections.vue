@@ -11,6 +11,7 @@ import {
 } from '~/composables/useApi'
 import { CONNECTIONS_TABLE_ACCESSOR_KEY } from '~/constants'
 import { formatIPv6, formatTimeFromNow } from '~/utils'
+import { renderTwoLineCell } from '~/utils/connectionCells'
 
 const { t, locale } = useI18n()
 
@@ -256,6 +257,23 @@ const allColumns: ConnectionColumn[] = [
     sortable: true,
     render: (conn: Connection) => getInboundUser(conn),
     groupValue: (conn: Connection) => getInboundUser(conn),
+  },
+
+  // ===== Composite columns (default 6-column layout) =====
+  {
+    id: CONNECTIONS_TABLE_ACCESSOR_KEY.HostProcess,
+    key: 'hostProcess',
+    groupable: true,
+    sortable: true,
+    sortId: 'Host',
+    render: (conn: Connection) => {
+      const primary = getHost(conn)
+      const aux = [conn.metadata.process, conn.metadata.processPath]
+        .filter((s): s is string => Boolean(s) && s !== '-')
+        .join(' · ')
+      return renderTwoLineCell(primary, aux)
+    },
+    groupValue: (conn: Connection) => getHost(conn),
   },
 ]
 
