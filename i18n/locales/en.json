@@ -71,6 +71,9 @@
   "proxiesDisplayMode": "Display Mode",
   "cardMode": "Card",
   "listMode": "List",
+  "displayMode": "Display Mode",
+  "tableMode": "Table",
+  "none": "None",
   "urlForLatencyTest": "URL for Latency Test",
   "autoCloseConns": "Automatically Close Connections",
   "autoSwitchEndpoint": "Automatically Switch Endpoint",
@@ -275,7 +278,6 @@
     "noScoreYet": "No score yet"
   },
   "themeColorTooltip": "Color order: Background, Accent, Text",
-  "useMobileConnectionsTable": "Use Table View on Mobile",
   "mixedContentError": "Cannot connect: this page is loaded over HTTPS but the backend URL is HTTP. Browsers block this for security. Please access the panel directly via your backend (e.g. http://127.0.0.1:9090/ui) or deploy the panel over HTTP.",
   "endpointConnectError": "Failed to connect to the backend. Please check the URL and ensure the backend is running."
 }
