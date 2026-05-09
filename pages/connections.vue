@@ -275,6 +275,20 @@ const allColumns: ConnectionColumn[] = [
     },
     groupValue: (conn: Connection) => getHost(conn),
   },
+  {
+    id: CONNECTIONS_TABLE_ACCESSOR_KEY.RuleChains,
+    key: 'ruleChains',
+    groupable: true,
+    sortable: false,
+    render: (conn: Connection) => {
+      const primary = getRule(conn)
+      const aux = conn.chains.length
+        ? [...conn.chains].reverse().join(' → ')
+        : ''
+      return renderTwoLineCell(primary, aux)
+    },
+    groupValue: (conn: Connection) => getRule(conn),
+  },
 ]
 
 const visibleColumns = computed(() => {
