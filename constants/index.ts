@@ -115,9 +115,9 @@ export const CONNECTIONS_TABLE_INITIAL_COLUMN_VISIBILITY: Record<
   CONNECTIONS_TABLE_ACCESSOR_KEY,
   boolean
 > = {
-  ...Object.fromEntries(
+  ...(Object.fromEntries(
     CONNECTIONS_TABLE_INITIAL_COLUMN_ORDER.map((i) => [i, false]),
-  ),
+  ) as Record<CONNECTIONS_TABLE_ACCESSOR_KEY, boolean>),
   // Default 6 columns: Action(Details+Close) | HostProcess | RuleChains | Traffic | Flow | ConnectTime
   [CONNECTIONS_TABLE_ACCESSOR_KEY.Details]: true,
   [CONNECTIONS_TABLE_ACCESSOR_KEY.Close]: true,
@@ -126,7 +126,7 @@ export const CONNECTIONS_TABLE_INITIAL_COLUMN_VISIBILITY: Record<
   [CONNECTIONS_TABLE_ACCESSOR_KEY.Traffic]: true,
   [CONNECTIONS_TABLE_ACCESSOR_KEY.Flow]: true,
   [CONNECTIONS_TABLE_ACCESSOR_KEY.ConnectTime]: true,
-} as Record<CONNECTIONS_TABLE_ACCESSOR_KEY, boolean>
+}
 
 export enum TAILWINDCSS_SIZE {
   XS = 'xs',
