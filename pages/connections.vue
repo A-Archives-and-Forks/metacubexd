@@ -268,9 +268,8 @@ const allColumns: ConnectionColumn[] = [
     sortId: 'Host',
     render: (conn: Connection) => {
       const primary = getHost(conn)
-      const aux = [conn.metadata.process, conn.metadata.processPath]
-        .filter((s): s is string => Boolean(s) && s !== '-')
-        .join(' · ')
+      const proc = getProcess(conn)
+      const aux = proc !== '-' ? proc : ''
       return renderTwoLineCell(primary, aux)
     },
     groupValue: (conn: Connection) => getHost(conn),
@@ -309,7 +308,8 @@ const allColumns: ConnectionColumn[] = [
     sortId: 'SourceIP',
     render: (conn: Connection) => {
       const primary = `${getSourceIP(conn)}:${conn.metadata.sourcePort}`
-      const aux = `→ ${getDestination(conn)}`
+      const dest = getDestination(conn)
+      const aux = dest ? `→ ${dest}` : ''
       return renderTwoLineCell(primary, aux)
     },
     groupValue: (conn: Connection) => getSourceIP(conn),
