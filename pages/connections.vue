@@ -780,7 +780,10 @@ function showConnectionDetails(conn: Connection) {
 }
 
 .conn-primary {
-  font-size: 0.8125rem; /* 13px */
+  /* Inherit font-size from the table cell so daisyUI's table-xs/sm/md/lg
+     setting (configured by the user via Connections Settings → Table size)
+     is respected. */
+  font-size: 1em;
   line-height: 1.4;
   font-weight: 500;
   color: var(--color-base-content);
@@ -790,13 +793,14 @@ function showConnectionDetails(conn: Connection) {
 }
 
 .conn-aux {
-  font-size: 0.6875rem; /* 11px */
+  /* 85% of primary, scaling with the user's table size setting. */
+  font-size: 0.85em;
   line-height: 1.35;
   font-weight: 400;
   color: color-mix(in oklch, var(--color-base-content) 58%, transparent);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  min-height: 14.85px; /* 11px × 1.35 — preserves equal height when aux is nbsp */
+  min-height: 1.35em; /* matches line-height — preserves equal height when aux is nbsp */
 }
 </style>
