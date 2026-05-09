@@ -97,3 +97,13 @@ body {
   height: 100%;
   min-height: 0;
 }
+
+/* ============================================================
+   ConnectionsTable — tabular numerics
+   Required for column-width stability as live download/upload
+   numbers refresh; pairs with composite cell typography in
+   components/connections/ConnectionsTable.vue.
+   ============================================================ */
+.conn-table-container {
+  font-variant-numeric: tabular-nums;
+}
