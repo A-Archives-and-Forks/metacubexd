@@ -82,13 +82,7 @@ const isForceTable = computed(() => displayMode.value === 'table')
 
 // Columns rendered in the card main row (host / process / action).
 // The remaining visible columns are concatenated into the aux line.
-const MAIN_ROW_COLUMN_IDS = new Set([
-  'details',
-  'close',
-  'host',
-  'process',
-  'hostProcess',
-])
+const MAIN_ROW_COLUMN_IDS = new Set(['close', 'host', 'process', 'hostProcess'])
 
 function getCardText(col: ConnectionColumn, conn: Connection): string {
   if (col.renderText) return col.renderText(conn)

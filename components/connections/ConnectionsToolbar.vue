@@ -203,45 +203,12 @@ const { t } = useI18n()
       </div>
     </div>
 
-    <!-- Card-mode controls: sort + group dropdowns -->
+    <!-- Card-mode-only controls: group dropdown
+         (Sort UI is already provided in Row 1 above and works for both modes.) -->
     <div
       v-if="displayMode === 'card'"
       class="flex flex-wrap items-center gap-2"
     >
-      <div class="flex items-center gap-1.5">
-        <span class="text-[0.8125rem] text-base-content/60">
-          {{ t('sortBy') }}
-        </span>
-        <select
-          class="cursor-pointer appearance-none rounded-lg border border-base-content/12 bg-base-200/60 bg-[length:1rem] bg-[right_0.5rem_center] bg-no-repeat py-1.5 pr-7 pl-3 text-[0.8125rem] text-base-content transition-all duration-200 focus:border-primary focus:outline-none"
-          style="
-            background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E&quot;);
-          "
-          :value="sortColumn"
-          @change="
-            emit(
-              'update:sortColumn',
-              ($event.target as HTMLSelectElement).value,
-            )
-          "
-        >
-          <option
-            v-for="col in sortableColumns"
-            :key="col.id"
-            :value="col.sortId"
-          >
-            {{ t(col.key) }}
-          </option>
-        </select>
-        <button
-          class="flex h-6 w-6 cursor-pointer items-center justify-center rounded-md border-none bg-transparent text-base-content/60 hover:bg-base-content/5"
-          @click="emit('toggleSortOrder')"
-        >
-          <IconSortAscending v-if="!sortDesc" :size="14" />
-          <IconSortDescending v-else :size="14" />
-        </button>
-      </div>
-
       <div class="flex items-center gap-1.5">
         <span class="text-[0.8125rem] text-base-content/60">
           {{ t('groupBy') }}
