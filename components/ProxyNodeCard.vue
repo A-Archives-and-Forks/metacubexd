@@ -194,6 +194,9 @@ const { floatingStyles, middlewareData, placement } = useFloating(
   {
     placement: 'top',
     strategy: 'fixed',
+    // Position via top/left; the floating element runs animate-pop-in,
+    // whose transform would otherwise override floating-ui's translate.
+    transform: false,
     middleware: [
       offset(10),
       flip(),
